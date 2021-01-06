@@ -1,0 +1,6 @@
+<%= form_for @recipe doe |f| %>
+ Name: <%= f.text_field :name, required: true%>
+ Category: <%= f.select(:category, Recipie::Category) %>
+ Directions: <% f.text_area :directions, %>
+ <% submit_tag "Add Recipe"%>
+<% end %>
