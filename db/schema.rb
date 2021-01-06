@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_093802) do
+ActiveRecord::Schema.define(version: 2021_01_06_095648) do
 
-# Could not dump table "ingredients" because of following StandardError
-#   Unknown type 'belongs_to' for column 'recipe_id'
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.decimal "amount", null: false
+    t.string "measure_rate", default: "0.00", null: false
+    t.string "amount_on_hand"
+    t.datetime "expiration_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
-# Could not dump table "recipies" because of following StandardError
-#   Unknown type 'belongs_to' for column 'user_id'
+  create_table "recipes", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "directions"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id", "name"], name: "index_recipes_on_user_id_and_name"
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false

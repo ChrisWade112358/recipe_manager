@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :recipes
   resources :ingredients
   resources :recipies
   root to: 'pages#home'
