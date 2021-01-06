@@ -9,6 +9,13 @@ class RecipiesController < ApplicationController
 
     def new
         @recipe = Recipie.new
+        @recipe.ingredient.new
+        @recipe.ingredient.new
+        @recipe.ingredient.new
+        @recipe.ingredient.new
+        @recipe.ingredient.new
+        @recipe.ingredient.new
+
     end
 
     def create
@@ -39,7 +46,17 @@ class RecipiesController < ApplicationController
     private
 
     def recipe_params
-        param.require(:recipie),permit(:name, :directions, :ingredients, :category, :date_last_made)
+        param.require(:recipie),permit(
+            :name, 
+            :directions, 
+            :ingredients, 
+            :category, 
+            :date_last_made
+            ingredients_attributes: [
+                :name
+                :amount
+                :measure_rate
+            ])
     end
 
 end

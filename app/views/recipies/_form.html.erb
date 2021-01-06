@@ -2,5 +2,9 @@
  Name: <%= f.text_field :name, required: true%>
  Category: <%= f.select(:category, Recipie::Category) %>
  Directions: <% f.text_area :directions, %>
+ <%= f.fields_for :ingredients do |i| %>
+    <%= i.text_field :name%>
+    <%= i.text_field :amount%> "  " <%= i.select(:category, Ingredient::Measure) %>
+ <% end %>
  <% submit_tag "Add Recipe"%>
 <% end %>
