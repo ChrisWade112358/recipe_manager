@@ -1,4 +1,13 @@
-<h1>Add Recipe</h1>
-
-
-<% render 'form' %>
+<h1>Recipes</h1>
+<div class="recipes">
+    <% @recipes.each do |r| %>
+    <div class="recipe">
+        <h3><%= r.name %></h3>
+        <p class="description"><%= r.description %></p>
+        <ul>
+            <li><%= button_to "Edit Recipe", edit_recipe_path, method: :get </li>
+            <li><%= button_to "Delete Recipe", recipe_path(current_recipe), method: :delete, data: {confirm: "Are you sure?" }%></li>
+        </ul>
+    </div>
+    <% end %>
+</div>
