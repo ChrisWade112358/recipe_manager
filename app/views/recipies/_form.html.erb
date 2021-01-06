@@ -1,5 +1,6 @@
 <%= form_for @recipe doe |f| %>
  Name: <%= f.text_field :name, required: true%>
+ Description: <% f.text_area :description %>
  Category: <%= f.select(:category, Recipie::Category) %>
  Directions: <% f.text_area :directions, %>
  <%= f.fields_for :ingredients do |i| %>
