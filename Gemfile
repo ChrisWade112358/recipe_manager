@@ -45,6 +45,9 @@ gem 'shutup'
 # Pry for debugging
 gem 'pry'
 
+#fake data
+gem 'factory_girl_rails'
+
 
 
 
