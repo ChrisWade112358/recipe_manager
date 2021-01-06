@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
-  def self.create_from_provider_date(data)
-    where(provider: data.provider, uid: data.uid).first_or_create do |user|
-      user.email = provider_data.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.name = provider_data.info.name
-    end
-  end
+         def self.create_from_provider_data(auth)
+          where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+            user.email = auth.info.email
+            user.password = Devise.friendly_token[0,20]
+            user.name = auth.info.name
+          end
+        end  
 end
