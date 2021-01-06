@@ -24,6 +24,29 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# Devise for Authentication
+gem 'devise'
+
+# Devise Omniauth
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'activerecord-session_store'
+
+
+# Better Errors
+gem 'better_errors', '~> 2.4'
+
+# For Live reload of views
+gem 'guard-livereload'
+
+# To kill runaway server
+gem 'shutup'
+
+# Pry for debugging
+gem 'pry'
+
+
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
