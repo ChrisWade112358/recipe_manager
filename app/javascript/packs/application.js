@@ -11,3 +11,6 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+window.addEventListener('turbolinks:load', () => new removeFields())
+require('./nested-forms/addFields')
+require('./nested-forms/removeFileds')

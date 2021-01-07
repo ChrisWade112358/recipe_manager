@@ -1,0 +1,8 @@
+<div class="nested-fields">
+    <%= i.hidden_field :destroy %>
+    <div>
+        <%= i.text_field :name%>
+        <%= i.text_field :amount%> 
+        <%= i.select(:category, Ingredient::Measure) %>
+    </div>
+</div>

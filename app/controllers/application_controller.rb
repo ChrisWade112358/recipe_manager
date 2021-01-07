@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
     include RecipesHelper
     include IngredientsHelper
 
-    set_recipe
+    def set_recipe
         @recipe = current_recipe
+    end 
    
 end
