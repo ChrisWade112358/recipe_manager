@@ -1,0 +1,22 @@
+<%= form_for @recipe do |f| %>
+   <%= render "shared/validation-messages", object: @recipe%>
+   <%= f.label :name %>
+   <%= f.text_field :name, required: true%>
+   <%= f.label :name %>
+   <%= f.text_area :description %>
+   <%= f.label :Category %>
+   <%= f.select(:category, Recipe::CATEGORY) %>
+   <%= f.label :Directions %>
+   <% f.text_area :directions %>
+
+      Ingredients
+      <%= f.fields_for :ingredients do |i| %>
+         <%=render 'ingredient_fields', f: i %>
+      <% end %>
+      <%= link_to_add_fields "Add Ingredients", f, :ingredients %>
+      <% f.submit %>
+      <% if params[:action] === "edit" && params[:controller] === "recipes" %>
+         <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+<% end %>
+

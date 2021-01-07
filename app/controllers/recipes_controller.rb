@@ -10,12 +10,7 @@ class RecipesController < ApplicationController
     end
 
     def new
-        @recipe = Recipe.new 
-        @recipe.ingredients.build(name: "First Ingredient")
-        @recipe.ingredients.build(name: "Second Ingredient")
-        @recipe.ingredients.build(name: "Third Ingredient")
-        @recipe.ingredients.build(name: "Fourth Ingredient")
-        @recipe.ingredients.build(name: "Fifth Ingredient")    
+        @recipe = Recipe.new     
     end
 
     def create
@@ -55,7 +50,8 @@ class RecipesController < ApplicationController
             ingredients_attributes: [
                 :name,
                 :amount,
-                :measure_rate
+                :measure_rate,
+                
             ])
     end
 
